@@ -1,19 +1,33 @@
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
-import { Header } from "./localComponents";
+import { FlatList, View } from "react-native";
+import { useShows } from "../../hooks";
+import { Show } from "../../types";
+import { Header, ShowCard } from "./localComponents";
 
 const ListShows: React.FC = () => {
+  const { shows } = useShows();
+  console.log("shows", shows);
   return (
-    <ScrollView
-      contentContainerStyle={{
+    <View
+      style={{
         flex: 1,
       }}
     >
       <Header containerStyle={{ marginBottom: 20 }} />
       <View>
-        <Text>List</Text>
+        <FlatList
+          testID="heroes-list"
+          data={shows}
+          numColumns={2}
+          columnWrapperStyle={{
+            justifyContent: "space-evenly",
+            marginTop: 10,
+          }}
+          keyExtractor={(item: Show) => item.id}
+          renderItem={({ item }) => <ShowCard show={item} />}
+        />
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
