@@ -14,19 +14,18 @@ const ListShows: React.FC = () => {
       }}
     >
       <Header containerStyle={{ marginBottom: 20 }} />
-      <View>
-        <FlatList
-          testID="heroes-list"
-          data={shows}
-          numColumns={2}
-          columnWrapperStyle={{
-            justifyContent: "space-evenly",
-            marginTop: 10,
-          }}
-          keyExtractor={(item: Show) => item.id}
-          renderItem={({ item }) => <ShowCard show={item} />}
-        />
-      </View>
+
+      <FlatList
+        testID="heroes-list"
+        data={shows}
+        numColumns={2}
+        columnWrapperStyle={{
+          justifyContent: "space-evenly",
+          marginBottom: 20,
+        }}
+        keyExtractor={(item: Show) => item.id}
+        renderItem={({ item }) => <ShowCard show={item} />}
+      />
     </View>
   );
 };

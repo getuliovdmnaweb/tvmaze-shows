@@ -7,3 +7,8 @@ export interface Show {
   image: Image;
   name: string;
 }
+
+export interface SearchedShow {
+  score: number;
+  show: Show;
+}

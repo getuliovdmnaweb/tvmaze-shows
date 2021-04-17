@@ -16,6 +16,25 @@ export const fetchAllShows = (pageNumber: number) => {
   };
 };
 
+export const FETCH_SEARCHED_SHOWS = "shows/FETCH_SEARCHED_SHOWS";
+export const fetchSearchedShows = (showName: string) => {
+  return {
+    type: FETCH_SEARCHED_SHOWS,
+    payload: showName,
+  };
+};
+
+export const SET_LOADING_SHOWS = "shows/LOADING_SHOWS";
+export const setLoadingshows = (loadingShows: boolean) => {
+  return {
+    type: FETCH_SEARCHED_SHOWS,
+    payload: loadingShows,
+  };
+};
+
 export type ShowsReducerAction = ReturnType<
-  typeof setList | typeof fetchAllShows
+  | typeof setList
+  | typeof fetchAllShows
+  | typeof fetchSearchedShows
+  | typeof setLoadingshows
 >;
