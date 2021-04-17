@@ -1,12 +1,12 @@
 import React from "react";
 import { FlatList, View } from "react-native";
-import { useShows } from "../../hooks";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux";
 import { Show } from "../../types";
 import { Header, ShowCard } from "./localComponents";
 
 const ListShows: React.FC = () => {
-  const { shows } = useShows();
-  console.log("shows", shows);
+  const shows = useSelector((state: RootState) => state.shows.list);
   return (
     <View
       style={{

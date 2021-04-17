@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ALL_SHOWS, api } from "../api";
+import { ALL_SHOWS, api } from "../redux/sagas/api";
 
 export const useShows = () => {
   const [shows, setShows] = useState([]);
