@@ -1,7 +1,12 @@
 import { Show } from "../../types";
-import { ShowsReducerAction, SET_LIST, SET_LOADING_SHOWS } from "../actions";
+import { SET_LIST, SET_LOADING_SHOWS } from "../actions";
 
-const initialState = {
+interface ReducerState {
+  list: Show[];
+  loadingShows: boolean;
+}
+
+const initialState: ReducerState = {
   list: [],
   loadingShows: false,
 };
