@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import { MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { Show } from "../../types";
 import { styles } from "./styles";
-import { light_blue } from "../../constants";
+import { light_blue, primary_gray } from "../../constants";
 import { useAppDispatch } from "../../hooks";
 import { addFavoriteShow, deleteFavoriteShow } from "../../redux/actions";
 
@@ -14,6 +14,7 @@ interface Props {
 }
 
 const ShowCard: React.FC<Props> = ({ show, heartBroken }) => {
+  const [likedShow, setLikedShow] = useState(false);
   const navigation = useNavigation();
   const dispatch = useAppDispatch();
   return (
@@ -29,9 +30,6 @@ const ShowCard: React.FC<Props> = ({ show, heartBroken }) => {
         <Text style={styles.name}>{show.name}</Text>
       </View>
       <View style={styles.iconContainer}>
-        <TouchableOpacity onPress={() => dispatch(addFavoriteShow(show))}>
-          <MaterialIcons name="favorite" size={30} color={light_blue} />
-        </TouchableOpacity>
         {heartBroken ? (
           <TouchableOpacity onPress={() => dispatch(deleteFavoriteShow(show))}>
             <MaterialCommunityIcons
@@ -40,7 +38,20 @@ const ShowCard: React.FC<Props> = ({ show, heartBroken }) => {
               color={light_blue}
             />
           </TouchableOpacity>
-        ) : null}
+        ) : (
+          <TouchableOpacity
+            onPress={() => {
+              setLikedShow(true);
+              dispatch(addFavoriteShow(show));
+            }}
+          >
+            <MaterialIcons
+              name="favorite"
+              size={30}
+              color={likedShow ? primary_gray : light_blue}
+            />
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );

@@ -1,9 +1,11 @@
 import React, { useMemo } from "react";
-import { FlatList, ScrollView, Text } from "react-native";
+import { FlatList, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Header, ShowCard } from "../../components";
 import { useAppSelector } from "../../hooks";
 import { Show } from "../../types";
+import SortingShows from "../../wrappers/SortingShows";
+import Dropdown from "./Dropdown";
 import { styles } from "./styles";
 
 interface Props {
@@ -36,8 +38,10 @@ const FavoriteShows: React.FC = () => {
       <Header containerStyle={{ marginBottom: 20 }}>
         <Text style={styles.title}>Favorite Shows</Text>
       </Header>
-
-      <ShowList shows={favoriteShows} />
+      <Dropdown favoriteShows={favoriteShows} />
+      <SortingShows>
+        <ShowList shows={favoriteShows} />
+      </SortingShows>
     </SafeAreaView>
   );
 };

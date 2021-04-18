@@ -56,6 +56,22 @@ export const setLoadingEpisodes = (loadingEpisodes: boolean) => {
   };
 };
 
+export const SORT_FAVORITE_LIST = "shows/SORT_FAVORITE_LIST";
+export const sortFavoriteList = (favoriteList: Show[]) => {
+  return {
+    type: SORT_FAVORITE_LIST,
+    payload: favoriteList,
+  };
+};
+
+export const SET_SORTING_SHOWS = "shows/SET_SORTING_SHOWS";
+export const setSortingShows = (sortingShows: boolean) => {
+  return {
+    type: SET_SORTING_SHOWS,
+    payload: sortingShows,
+  };
+};
+
 export type ShowsReducerAction = ReturnType<
   | typeof setList
   | typeof fetchAllShows
@@ -64,4 +80,5 @@ export type ShowsReducerAction = ReturnType<
   | typeof setLoadingEpisodes
   | typeof addFavoriteShow
   | typeof deleteFavoriteShow
+  | typeof sortFavoriteList
 >;
