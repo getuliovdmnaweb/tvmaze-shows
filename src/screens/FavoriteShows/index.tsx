@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Header, ShowCard } from "../../components";
 import { useAppSelector } from "../../hooks";
 import { Show } from "../../types";
-import { sortAlphabetically } from "../../utils";
+import SortingShows from "../../wrappers/SortingShows";
 import Dropdown from "./Dropdown";
 import { styles } from "./styles";
 
@@ -31,17 +31,17 @@ const ShowList: React.FC<Props> = ({ shows }) => {
 };
 
 const FavoriteShows: React.FC = () => {
-  const favoriteShows = sortAlphabetically(
-    useAppSelector((state) => state.shows.favoriteList)
-  );
+  const favoriteShows = useAppSelector((state) => state.shows.favoriteList);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <Header containerStyle={{ marginBottom: 20 }}>
         <Text style={styles.title}>Favorite Shows</Text>
       </Header>
-      <Dropdown onOpen={() => console.log("open")} />
-      <ShowList shows={favoriteShows} />
+      <Dropdown favoriteShows={favoriteShows} />
+      <SortingShows>
+        <ShowList shows={favoriteShows} />
+      </SortingShows>
     </SafeAreaView>
   );
 };

@@ -1,6 +1,10 @@
 export {
   SET_LIST,
   setList,
+  SORT_FAVORITE_LIST,
+  sortFavoriteList,
+  SET_SORTING_SHOWS,
+  setSortingShows,
   ADD_FAVORITE_SHOW,
   addFavoriteShow,
   DELETE_FAVORITE_SHOW,
