@@ -1,10 +1,10 @@
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/core";
-import { Show } from "../../../../types";
-import { styles } from "./styles";
 import { MaterialIcons } from "@expo/vector-icons";
-import { light_blue } from "../../../../constants";
+import { Show } from "../../types";
+import { styles } from "./styles";
+import { light_blue } from "../../constants";
 
 interface Props {
   show: Show;

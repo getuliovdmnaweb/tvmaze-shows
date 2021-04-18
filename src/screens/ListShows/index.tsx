@@ -1,19 +1,28 @@
 import React from "react";
 import { FlatList, View } from "react-native";
+import { useDispatch } from "react-redux";
+import { Header, Input, ShowCard } from "../../components";
 import { useAppSelector } from "../../hooks";
+import { fetchSearchedShows } from "../../redux/actions";
 import { Show } from "../../types";
 import { LoadingShows } from "../../wrappers";
-import { Header, ShowCard } from "./localComponents";
 
 const ListShows: React.FC = () => {
   const shows = useAppSelector((state) => state.shows.list);
+  const dispatch = useDispatch();
   return (
     <View
       style={{
         flex: 1,
       }}
     >
-      <Header containerStyle={{ marginBottom: 20 }} />
+      <Header containerStyle={{ marginBottom: 20 }}>
+        <Input
+          onFetch={(inputValue: string) =>
+            dispatch(fetchSearchedShows(inputValue))
+          }
+        />
+      </Header>
       <LoadingShows>
         <FlatList
           testID="heroes-list"

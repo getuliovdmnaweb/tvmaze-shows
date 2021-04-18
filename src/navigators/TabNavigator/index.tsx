@@ -14,6 +14,7 @@ function TabNavigator() {
     >
       <Tab.Screen
         options={{
+          tabBarLabel: "Shows",
           tabBarIcon: ({ focused }) => (
             <MaterialIcons
               name="slideshow"
@@ -27,11 +28,12 @@ function TabNavigator() {
       />
       <Tab.Screen
         options={{
+          tabBarLabel: "Favorite Shows",
           tabBarIcon: ({ focused }) => (
             <MaterialIcons
               name={focused ? "star" : "star-outline"}
               size={24}
-              color={focused ? "yellow" : "#D1D1D1"}
+              color={focused ? "white" : "#D1D1D1"}
             />
           ),
         }}
