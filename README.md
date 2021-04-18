@@ -75,7 +75,7 @@ Alternatively, if you have an Android Emulator installed on your machine just pr
   - **ListShows**: Screen to list and search for Shows by name.
   - **EpisodeDetail**: Screen to detail important information for a particular show.Also shows, a list of Episodes Separated by seasons.
 - **types**: It is where it's defined interfaces and types used in the application.
-- **helpers**: Folder to retrieve a helper function for sorting lists.
+- **utils**: Folder to retrieve a helper function for sorting lists.
 - **wrappers**: Components to remove complex logic from screen components.  
   - **LoadingEpisodes**: Component retrieves an ActivityIndicator or Children depending on loadingEpisodes redux state.
   - **LoadingShows**: Component retrieves an ActivityIndicator or Children depending on loadingShows redux state.
