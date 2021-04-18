@@ -1,6 +1,12 @@
 export {
   SET_LIST,
   setList,
+  ADD_FAVORITE_SHOW,
+  addFavoriteShow,
+  DELETE_FAVORITE_SHOW,
+  deleteFavoriteShow,
+  SET_LOADING_EPISODES,
+  setLoadingEpisodes,
   SET_LOADING_SHOWS,
   setLoadingshows,
   FETCH_ALL_SHOWS,

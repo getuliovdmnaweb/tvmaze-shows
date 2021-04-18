@@ -8,16 +8,19 @@ import { fetchSearchedShows } from "../../redux/actions";
 
 const initialInputValue = "";
 
-const Input: React.FC = () => {
+interface Props {
+  onFetch: (inputValue: string) => void;
+}
+
+const Input: React.FC<Props> = ({ onFetch }) => {
   const [inputValue, setInputValue] = useState<string>(initialInputValue);
-  const dispatch = useDispatch();
 
   const clearInput = useCallback(() => {
     setInputValue(initialInputValue);
   }, []);
 
   const onSubmit = () => {
-    dispatch(fetchSearchedShows(inputValue));
+    onFetch(inputValue);
     clearInput();
   };
 

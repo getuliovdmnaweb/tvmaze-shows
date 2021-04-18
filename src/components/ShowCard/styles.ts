@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { light_blue, primary_blue } from "../../../../constants";
+import { light_blue, primary_blue } from "../../constants";
 
 export const styles = StyleSheet.create({
   card: {
@@ -20,6 +20,8 @@ export const styles = StyleSheet.create({
     color: "white",
   },
   iconContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
     backgroundColor: primary_blue,
     alignItems: "center",
     borderTopWidth: 1,

@@ -1,14 +1,14 @@
 import React from "react";
 import { Image, View } from "react-native";
-import { Input } from "../../../../components";
-import { logo_uri } from "../../../../constants";
+import { logo_uri } from "../../constants";
 import { styles } from "./styles";
 
 interface HeaderProps {
   containerStyle?: {};
+  children: React.ReactElement;
 }
 
-const Header: React.FC<HeaderProps> = ({ containerStyle }) => {
+const Header: React.FC<HeaderProps> = ({ containerStyle, children }) => {
   return (
     <View style={{ ...styles.container, ...containerStyle }}>
       <Image
@@ -17,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({ containerStyle }) => {
           uri: logo_uri,
         }}
       />
-      <Input />
+      {children}
     </View>
   );
 };
