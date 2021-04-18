@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, Image } from "react-native";
 import { styles } from "./styles";
-import { primary_blue, primary_gray } from "../../constants";
+import { primary_gray } from "../../constants";
+import DetailRow from "./localComponents/DetailRow";
+import axios from "axios";
+import { useSeasonEpisodes } from "../../hooks/useSeasonEpisodes";
 
 interface Props {
   route: any;
@@ -9,7 +12,8 @@ interface Props {
 
 const ShowDetail: React.FC<Props> = ({ route }) => {
   const { show } = route.params;
-  console.log(show);
+  const { episodes } = useSeasonEpisodes(show);
+  console.log("Episodes", episodes);
   return (
     <View style={{ backgroundColor: primary_gray, padding: 20 }}>
       <Text style={styles.title}>{show.name}</Text>
@@ -18,42 +22,11 @@ const ShowDetail: React.FC<Props> = ({ route }) => {
         <View style={styles.detailContainer}>
           <Text style={styles.detailTitle}>Show Detail</Text>
           <View style={styles.detailRow}>
-            <Text style={styles.detailOption}>Schedule:</Text>
-            {show.schedule.days.map((day: string, index: number) => {
-              if (index === show.genres.length - 1) {
-                return (
-                  <Text key={day} style={styles.font}>
-                    {" "}
-                    {day},
-                  </Text>
-                );
-              }
-              return (
-                <Text key={day} style={styles.font}>
-                  {" "}
-                  {day}.
-                </Text>
-              );
-            })}
+            <DetailRow optionTitle="Schedule:" options={show.schedule.days} />
             <Text style={styles.font}> At {show.schedule.time}</Text>
           </View>
           <View style={styles.detailRow}>
-            <Text style={styles.detailOption}>Genres:</Text>
-            {show.genres.map((genre: string, index: number) => {
-              if (index === show.genres.length - 1) {
-                return (
-                  <Text key={genre} style={styles.font}>
-                    {genre}
-                  </Text>
-                );
-              }
-              return (
-                <Text key={genre} style={styles.font}>
-                  {" "}
-                  {genre} |
-                </Text>
-              );
-            })}
+            <DetailRow optionTitle="Genres:" options={show.genres} />
           </View>
         </View>
       </View>
