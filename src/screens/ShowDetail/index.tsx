@@ -5,6 +5,7 @@ import { primary_gray } from "../../constants";
 import DetailRow from "./localComponents/DetailRow";
 import axios from "axios";
 import { useSeasonEpisodes } from "../../hooks/useSeasonEpisodes";
+import LoadingEpisodes from "../../wrappers/LoadingEpisodes";
 
 interface Props {
   route: any;
@@ -34,6 +35,11 @@ const ShowDetail: React.FC<Props> = ({ route }) => {
       <Text style={{ color: "white", textAlign: "justify" }}>
         {show.summary.replace(/[<p>\<b>{\}\[\]\\\/]/gi, "")}
       </Text>
+      <LoadingEpisodes>
+        <View>
+          <Text>List of Episodes</Text>
+        </View>
+      </LoadingEpisodes>
     </View>
   );
 };
