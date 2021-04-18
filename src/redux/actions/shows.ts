@@ -27,7 +27,7 @@ export const fetchSearchedShows = (showName: string) => {
 export const SET_LOADING_SHOWS = "shows/LOADING_SHOWS";
 export const setLoadingshows = (loadingShows: boolean) => {
   return {
-    type: FETCH_SEARCHED_SHOWS,
+    type: SET_LOADING_SHOWS,
     payload: loadingShows,
   };
 };

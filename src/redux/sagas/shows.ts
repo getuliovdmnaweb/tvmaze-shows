@@ -32,6 +32,18 @@ export function* fetchSearchedShowsSaga(action: AnyAction): any {
   }
 }
 
+export function* fetchSearchedShowsSaga(action: AnyAction): any {
+  try {
+    yield put(setLoadingshows(true));
+    const showName = action.payload;
+    const showsList = yield call(() => fetchSearchedShows(showName));
+    yield put(setList(showsList));
+    yield put(setLoadingshows(false));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 export function* watchShows() {
   yield takeLatest(FETCH_ALL_SHOWS, fetchAllShowsSaga);
   yield takeLatest(FETCH_SEARCHED_SHOWS, fetchSearchedShowsSaga);
