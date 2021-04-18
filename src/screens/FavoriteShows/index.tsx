@@ -22,21 +22,22 @@ const ShowList: React.FC<Props> = ({ shows }) => {
           marginBottom: 20,
         }}
         keyExtractor={(item: Show) => item.id}
-        renderItem={({ item }) => <ShowCard show={item} />}
+        renderItem={({ item }) => <ShowCard heartBroken={true} show={item} />}
       />
     );
-  }, []);
+  }, [shows]);
 };
 
 const FavoriteShows: React.FC = () => {
-  const shows = useAppSelector((state) => state.shows.list);
+  const favoriteShows = useAppSelector((state) => state.shows.favoriteList);
+
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
       <Header containerStyle={{ marginBottom: 20 }}>
         <Text style={styles.title}>Favorite Shows</Text>
       </Header>
 
-      <ShowList shows={shows} />
+      <ShowList shows={favoriteShows} />
     </SafeAreaView>
   );
 };

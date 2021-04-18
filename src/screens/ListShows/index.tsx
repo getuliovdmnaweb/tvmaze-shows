@@ -33,7 +33,9 @@ const ListShows: React.FC = () => {
             marginBottom: 20,
           }}
           keyExtractor={(item: Show) => item.id}
-          renderItem={({ item }) => <ShowCard show={item} />}
+          renderItem={({ item }) => (
+            <ShowCard heartBroken={false} show={item} />
+          )}
         />
       </LoadingShows>
     </View>

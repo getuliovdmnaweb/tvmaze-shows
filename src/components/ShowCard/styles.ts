@@ -20,6 +20,8 @@ export const styles = StyleSheet.create({
     color: "white",
   },
   iconContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
     backgroundColor: primary_blue,
     alignItems: "center",
     borderTopWidth: 1,

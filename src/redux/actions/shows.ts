@@ -8,6 +8,22 @@ export const setList = (show: Show[]) => {
   };
 };
 
+export const ADD_FAVORITE_SHOW = "shows/ADD_FAVORITE_SHOW";
+export const addFavoriteShow = (show: Show) => {
+  return {
+    type: ADD_FAVORITE_SHOW,
+    payload: show,
+  };
+};
+
+export const DELETE_FAVORITE_SHOW = "shows/DELETE_FAVORITE_SHOW";
+export const deleteFavoriteShow = (show: Show) => {
+  return {
+    type: DELETE_FAVORITE_SHOW,
+    payload: show,
+  };
+};
+
 export const FETCH_ALL_SHOWS = "shows/FETCH_ALL_SHOWS";
 export const fetchAllShows = (pageNumber: number) => {
   return {
@@ -46,4 +62,6 @@ export type ShowsReducerAction = ReturnType<
   | typeof fetchSearchedShows
   | typeof setLoadingshows
   | typeof setLoadingEpisodes
+  | typeof addFavoriteShow
+  | typeof deleteFavoriteShow
 >;
