@@ -36,7 +36,10 @@ const ShowDetail: React.FC<Props> = ({ route }) => {
         </View>
 
         <Text style={{ color: "white", textAlign: "justify" }}>
-          {show.summary.replace(/[<p>\<b>{\}\[\]\\\/]/gi, "")}
+          {show.summary
+            .replace(/<[^>]*>/g, " ")
+            .replace(/\s{2,}/g, " ")
+            .trim()}
         </Text>
       </View>
       <View>
