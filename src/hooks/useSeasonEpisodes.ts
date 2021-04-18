@@ -1,25 +1,25 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useAppDispatch } from ".";
+import { useAppDispatch } from "./useRedux";
 import { setLoadingEpisodes } from "../redux/actions/shows";
 import { Episode, Show } from "../types";
 
 export const useSeasonEpisodes = (show: Show) => {
-  const [episodes, setEpisodes] = useState<Episode[]>([]);
+  const [seasons, setSeasons] = useState<Episode[]>([]);
   const dispatch = useAppDispatch();
   useEffect(() => {
-    const fetchEpisodes = async () => {
+    const fetchSeasons = async () => {
       dispatch(setLoadingEpisodes(true));
       const seasonIds = await fetchSeasonsId(show.id);
       const episodesBySeason = await fetchEpisodesBySeason(seasonIds);
-      setEpisodes(episodesBySeason);
+      setSeasons(episodesBySeason);
       dispatch(setLoadingEpisodes(false));
     };
-    fetchEpisodes();
+    fetchSeasons();
   }, []);
 
   return {
-    episodes,
+    seasons,
   };
 };
 
@@ -38,6 +38,6 @@ const fetchEpisodesBySeason = async (seasonIds: number[]) => {
     );
     return response.data;
   });
-  const episodes = await Promise.all(seasonEpisodes);
-  return episodes;
+  const seasons = await Promise.all(seasonEpisodes);
+  return seasons;
 };

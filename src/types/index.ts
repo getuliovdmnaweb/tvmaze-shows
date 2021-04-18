@@ -14,6 +14,7 @@ export interface SearchedShow {
 }
 
 export interface Episode {
+  id: number;
   name: string;
   number: number;
   season: number;
