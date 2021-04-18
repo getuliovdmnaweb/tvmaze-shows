@@ -12,3 +12,12 @@ export interface SearchedShow {
   score: number;
   show: Show;
 }
+
+export interface Episode {
+  id: number;
+  name: string;
+  number: number;
+  season: number;
+  summary: string;
+  image?: Image;
+}

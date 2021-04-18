@@ -1,5 +1,6 @@
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
+import { useNavigation } from "@react-navigation/core";
 import { Show } from "../../../../types";
 import { styles } from "./styles";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -10,11 +11,12 @@ interface Props {
 }
 
 const ShowCard: React.FC<Props> = ({ show }) => {
+  const navigation = useNavigation();
   return (
     <View style={styles.card}>
       <TouchableOpacity
         accessibilityRole="button"
-        onPress={() => console.log(show)}
+        onPress={() => navigation.navigate("Show Detail", { show })}
       >
         <Image style={styles.image} source={{ uri: show.image.medium }} />
       </TouchableOpacity>

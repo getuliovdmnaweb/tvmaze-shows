@@ -32,9 +32,18 @@ export const setLoadingshows = (loadingShows: boolean) => {
   };
 };
 
+export const SET_LOADING_EPISODES = "shows/LOADING_EPISODES";
+export const setLoadingEpisodes = (loadingEpisodes: boolean) => {
+  return {
+    type: SET_LOADING_EPISODES,
+    payload: loadingEpisodes,
+  };
+};
+
 export type ShowsReducerAction = ReturnType<
   | typeof setList
   | typeof fetchAllShows
   | typeof fetchSearchedShows
   | typeof setLoadingshows
+  | typeof setLoadingEpisodes
 >;
