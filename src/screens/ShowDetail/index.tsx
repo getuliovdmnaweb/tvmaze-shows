@@ -3,9 +3,9 @@ import { View, Text, Image } from "react-native";
 import { styles } from "./styles";
 import { primary_gray } from "../../constants";
 import { useSeasonEpisodes } from "../../hooks";
-import LoadingEpisodes from "../../wrappers/LoadingEpisodes";
 import { ScrollView } from "react-native-gesture-handler";
 import { Season, DetailRow } from "./localComponents";
+import { LoadingEpisodes } from "../../wrappers";
 
 interface Props {
   route: any;
