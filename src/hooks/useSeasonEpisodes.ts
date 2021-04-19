@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "./useRedux";
-import { setLoadingEpisodes } from "../redux/actions/shows";
+import { setLoadingEpisodes } from "../redux/actions";
 import { Episode, Show } from "../types";
 
 export const useSeasonEpisodes = (show: Show) => {
