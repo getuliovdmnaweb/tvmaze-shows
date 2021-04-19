@@ -20,9 +20,11 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.getuliovdmnaweb.tvmazeshows",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#47948B"
       }
     },
     "web": {
