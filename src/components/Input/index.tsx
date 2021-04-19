@@ -3,16 +3,15 @@ import { TextInput, TouchableOpacity, View } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { styles } from "./styles";
 import { placeholder_blue } from "../../constants";
-import { useDispatch } from "react-redux";
-import { fetchSearchedShows } from "../../redux/actions";
 
 const initialInputValue = "";
 
 interface Props {
   onFetch: (inputValue: string) => void;
+  placeholderText: string;
 }
 
-const Input: React.FC<Props> = ({ onFetch }) => {
+const Input: React.FC<Props> = ({ onFetch, placeholderText }) => {
   const [inputValue, setInputValue] = useState<string>(initialInputValue);
 
   const clearInput = useCallback(() => {
@@ -31,7 +30,7 @@ const Input: React.FC<Props> = ({ onFetch }) => {
         value={inputValue}
         onChangeText={setInputValue}
         placeholderTextColor={placeholder_blue}
-        placeholder="Search Shows"
+        placeholder={placeholderText}
         onSubmitEditing={onSubmit}
       />
       <TouchableOpacity onPress={onSubmit} style={styles.iconButton}>

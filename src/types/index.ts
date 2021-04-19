@@ -21,3 +21,15 @@ export interface Episode {
   summary: string;
   image?: Image;
 }
+
+export interface People {
+  id: number;
+  name: string;
+  series: Show[];
+  image?: Image;
+}
+
+export interface SearchedPeople {
+  score: number;
+  person: People;
+}

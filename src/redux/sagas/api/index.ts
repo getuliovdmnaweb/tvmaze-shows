@@ -1,7 +1,7 @@
-import { SearchedShow, Show } from "../../../types";
+import { SearchedPeople, SearchedShow, Show } from "../../../types";
 import { api } from "./api";
 export * from "./api";
-import { ALL_SHOWS, SEARCH_SHOWS } from "./urls";
+import { ALL_SHOWS, SEARCH_PEOPLE, SEARCH_SHOWS } from "./urls";
 export * from "./urls";
 
 export const fetchAllShows = async (page: number): Promise<Show[]> => {
@@ -20,4 +20,17 @@ export const fetchSearchedShows = async (showName: string): Promise<Show[]> => {
     ...show.show,
   }));
   return showsList;
+};
+
+export const fetchSearchedPeople = async (
+  peopleName: string
+): Promise<Show[]> => {
+  const response = await api.get(SEARCH_PEOPLE, {
+    params: { q: peopleName },
+  });
+  const peopleList = response.map((people: SearchedPeople) => ({
+    people: people.score,
+    ...people.person,
+  }));
+  return peopleList;
 };

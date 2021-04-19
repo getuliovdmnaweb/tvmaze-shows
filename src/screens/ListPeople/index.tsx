@@ -1,14 +1,14 @@
 import React from "react";
 import { FlatList, View } from "react-native";
 import { useDispatch } from "react-redux";
-import { Header, Input, ShowCard } from "../../components";
+import { Header, Input, PeopleCard } from "../../components";
 import { useAppSelector } from "../../hooks";
-import { fetchSearchedShows } from "../../redux/actions";
-import { Show } from "../../types";
-import { LoadingShows } from "../../wrappers";
+import { fetchSearchedPeople } from "../../redux/actions";
+import { People } from "../../types";
+import { LoadingPeople } from "../../wrappers";
 
-const ListShows: React.FC = () => {
-  const shows = useAppSelector((state) => state.shows.list);
+const ListPeople: React.FC = () => {
+  const people = useAppSelector((state) => state.people.list);
   const dispatch = useDispatch();
   return (
     <View
@@ -18,29 +18,27 @@ const ListShows: React.FC = () => {
     >
       <Header containerStyle={{ marginBottom: 20 }}>
         <Input
-          placeholderText="Search Shows"
+          placeholderText="Search People"
           onFetch={(inputValue: string) =>
-            dispatch(fetchSearchedShows(inputValue))
+            dispatch(fetchSearchedPeople(inputValue))
           }
         />
       </Header>
-      <LoadingShows>
+      <LoadingPeople>
         <FlatList
           testID="heroes-list"
-          data={shows}
+          data={people}
           numColumns={2}
           columnWrapperStyle={{
             justifyContent: "space-evenly",
             marginBottom: 20,
           }}
-          keyExtractor={(item: Show) => item.id}
-          renderItem={({ item }) => (
-            <ShowCard heartBroken={false} show={item} />
-          )}
+          keyExtractor={(item: People) => item.id.toString()}
+          renderItem={({ item }) => <PeopleCard people={item} />}
         />
-      </LoadingShows>
+      </LoadingPeople>
     </View>
   );
 };
 
-export default ListShows;
+export default ListPeople;
