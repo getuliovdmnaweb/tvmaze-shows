@@ -23,3 +23,11 @@ export const setLoadingPeople = (loadingPeople: boolean) => {
     payload: loadingPeople,
   };
 };
+
+export const SET_LOADING_PEOPLE_SHOWS = "people/SET_LOADING_PEOPLE_SHOWS";
+export const setLoadingPeopleShows = (loadingPeopleShows: boolean) => {
+  return {
+    type: SET_LOADING_PEOPLE_SHOWS,
+    payload: loadingPeopleShows,
+  };
+};
