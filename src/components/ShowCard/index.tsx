@@ -23,7 +23,7 @@ const ShowCard: React.FC<Props> = ({ show, heartBroken }) => {
         accessibilityRole="button"
         onPress={() => navigation.navigate("Show Detail", { show })}
       >
-        <Image style={styles.image} source={{ uri: show.image.medium }} />
+        <Image style={styles.image} source={{ uri: show.image?.medium }} />
       </TouchableOpacity>
 
       <View style={styles.nameContainer}>

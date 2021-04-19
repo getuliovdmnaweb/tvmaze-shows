@@ -8,10 +8,12 @@ interface Props {
   children: React.ReactElement;
 }
 
-const LoadingPeople: React.FC<Props> = ({ children }) => {
-  const loadingPeople = useAppSelector((state) => state.people.loadingPeople);
+const LoadingPeopleShows: React.FC<Props> = ({ children }) => {
+  const loadingPeopleShows = useAppSelector(
+    (state) => state.people.loadingPeopleShows
+  );
 
-  if (loadingPeople) {
+  if (loadingPeopleShows) {
     return (
       <View style={{ flex: 1 }}>
         <ActivityIndicator
@@ -25,4 +27,4 @@ const LoadingPeople: React.FC<Props> = ({ children }) => {
   return children;
 };
 
-export default LoadingPeople;
+export default LoadingPeopleShows;

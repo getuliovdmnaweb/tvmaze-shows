@@ -1,14 +1,20 @@
 import { People } from "../../types";
-import { SET_LOADING_PEOPLE, SET_PEOPLE_LIST } from "../actions/people";
+import {
+  SET_LOADING_PEOPLE,
+  SET_LOADING_PEOPLE_SHOWS,
+  SET_PEOPLE_LIST,
+} from "../actions/people";
 
 interface ReducerState {
   list: People[];
   loadingPeople: boolean;
+  loadingPeopleShows: boolean;
 }
 
 const initialState: ReducerState = {
   list: [],
   loadingPeople: false,
+  loadingPeopleShows: false,
 };
 
 export const peopleReducer = (state = initialState, action: any) => {
@@ -24,7 +30,11 @@ export const peopleReducer = (state = initialState, action: any) => {
         ...state,
         loadingPeople: action.payload,
       };
-
+    case SET_LOADING_PEOPLE_SHOWS:
+      return {
+        ...state,
+        loadingPeopleShows: action.payload,
+      };
     default:
       return state;
   }

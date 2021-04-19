@@ -27,4 +27,6 @@ export {
   FETCH_SEARCHED_PEOPLE,
   setLoadingPeople,
   SET_LOADING_PEOPLE,
+  setLoadingPeopleShows,
+  SET_LOADING_PEOPLE_SHOWS,
 } from "./people";
