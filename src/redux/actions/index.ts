@@ -19,3 +19,12 @@ export {
   FETCH_SEARCHED_SHOWS,
   fetchSearchedShows,
 } from "./shows";
+
+export {
+  setPeopleList,
+  SET_PEOPLE_LIST,
+  fetchSearchedPeople,
+  FETCH_SEARCHED_PEOPLE,
+  setLoadingPeople,
+  SET_LOADING_PEOPLE,
+} from "./people";
