@@ -1,4 +1,4 @@
-# This is an amazing app for retrieving your favorite hero using marvel api.
+# Application for listing TV series, using the API provided by the TVMaze website.
 
 ## Technologies:
 
