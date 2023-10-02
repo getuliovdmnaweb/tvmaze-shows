@@ -7,30 +7,40 @@
 - Typescript
 - Redux and Redux Saga
 
+## Screens
+
+<table>
+  <tr>
+     <td>List and Search you shows</td>
+     <td>Detail of Shows with Seasons</td>
+     <td>Episode Detail</td>
+     
+  </tr>
+  <tr>
+    <td><img width="600" alt="image" src="https://github.com/getuliovdmnaweb/tvmaze-shows/assets/65790521/a8c567ff-59d9-47ee-b2f9-7450ac50702c"></td>
+    <td><img width="600" alt="image" src="https://github.com/getuliovdmnaweb/tvmaze-shows/assets/65790521/d23cfd52-db0b-42ed-b035-5b961d59eef4"></td>
+    <td><img width="600" alt="image" src="https://github.com/getuliovdmnaweb/tvmaze-shows/assets/65790521/85a0f1f6-92d8-4594-9062-30eb5f8f1644"></td>
+    
+  </tr>
+  <tr>
+    <td>Favorite Shows</td>
+    <td>Listing People</td>
+    <td>People detail with their shows! </td>
+  </tr>
+  <tr>
+    <td><img width="600" alt="image" src="https://github.com/getuliovdmnaweb/tvmaze-shows/assets/65790521/90bcc957-ec62-4c6a-a354-ad3bac6feed4"></td>
+    <td><img width="600" alt="image" src="https://github.com/getuliovdmnaweb/tvmaze-shows/assets/65790521/3b62e71b-cee8-4f54-bfe9-38a5ff6bb4ae"></td>
+    <td><img width="600" alt="image" src="https://github.com/getuliovdmnaweb/tvmaze-shows/assets/65790521/9eae4996-57f9-44a6-9843-b6ac967550f0"></td>
+  </tr>
+ </table>
+
+
 ## Getting Started
 
 #### APK Android
-Apk's link was created with expo for android. Download Android [APK here](https://expo.io/artifacts/32bf8536-8e5d-4d8e-980a-93b9f8c86480)
 
-After downloading the apk drag and drop it to an emulator or try to install it on your Android device.
-
-In case you did not succeed with the APK, try to run in debug mode using the following instructions.
 
 #### Installing the App
-First of all you need to install machine dependencies.
-Verify if you have expo-cli installed on your machine.
-For that run:
-
-```
-npm install --global expo-cli 
-```
-
-or
-
-```
-yarn global add expo-cli 
-```
-After that inside Project's folder install all of the dependencies running:
 
 ```
 yarn install
